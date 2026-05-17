@@ -1,0 +1,45 @@
+name: Preprocessing Data
+
+# Trigger menjalankan automation
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Check out your repository
+        uses: actions/checkout@v4
+
+      # Setup environment
+      - name: Set up python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      
+      # Install dependencies untuk menjalankan file python
+      - name: Install Dependencies
+        run: |
+          pip install pandas polars
+      
+      # Menjalankan file python
+      - name: Running python file
+        run: python preprocessing.py
+
+      # Commit dan push ke repo
+      - name: Commit & Push Hasil Cleaning ke Repo
+        run: |
+          git config --global user.name ${{ secrects.USERNAME }}
+          git config --global user.email ${{ secrects.EMAIL }}
+
+          # Nama File Dataset Bersih
+          git add clean_data.csv
+
+          # [skip ci] untuk mencegah github action berjalan sendiri ketika dilakukan commit
+          git commit -m "Update Dataset [skip ci]" || echo "Tidak ada perubahan data, skip commit."
+          
+          git push

@@ -106,7 +106,7 @@ def build_features_and_label(dataset, window_days=90):
 
 if __name__ == '__main__':
     print("Memproses data")
-    raw_data = load_data("D:\TUGAS\Eksperimen_SML_Muhammad_Rizki_Yanuar\data.csv")
+    raw_data = load_data("../data.csv")
     clean_data = preprocessing_data(raw_data)
     data_final = build_features_and_label(clean_data, window_days=90)
 
