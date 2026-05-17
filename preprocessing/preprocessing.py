@@ -106,10 +106,10 @@ def build_features_and_label(dataset, window_days=90):
 
 if __name__ == '__main__':
     print("Memproses data")
-    raw_data = load_data("preprocessing/data.csv")
+    raw_data = load_data("data.csv")
     clean_data = preprocessing_data(raw_data)
     data_final = build_features_and_label(clean_data, window_days=90)
 
     # Save data bersih
-    data_final.to_csv("clean_data.csv", index=False)
+    data_final.to_csv("preprocessing/clean_data.csv", index=False)
     print("Selesai")
