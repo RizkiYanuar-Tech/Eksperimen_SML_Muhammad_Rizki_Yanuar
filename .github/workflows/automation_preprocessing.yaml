@@ -33,8 +33,8 @@ jobs:
       # Commit dan push ke repo
       - name: Commit & Push Hasil Cleaning ke Repo
         run: |
-          git config --global user.name ${{ secrects.USERNAME }}
-          git config --global user.email ${{ secrects.EMAIL }}
+          git config --global user.name ${{ secrect.USERNAME }}
+          git config --global user.email ${{ secrect.EMAIL }}
 
           # Nama File Dataset Bersih
           git add clean_data.csv
