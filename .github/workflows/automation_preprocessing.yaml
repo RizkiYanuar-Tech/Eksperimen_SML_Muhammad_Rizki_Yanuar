@@ -28,7 +28,7 @@ jobs:
       
       # Menjalankan file python
       - name: Running python file
-        run: python preprocessing.py
+        run: python preprocessing/preprocessing.py
 
       # Commit dan push ke repo
       - name: Commit & Push Hasil Cleaning ke Repo
