@@ -40,7 +40,7 @@ jobs:
           git config --global user.email ${{ secrets.EMAIL }}
 
           # Nama File Dataset Bersih
-          git add preprocesisng/clean_data.csv
+          git add preprocessing/clean_data.csv
 
           # [skip ci] untuk mencegah github action berjalan sendiri ketika dilakukan commit
           git commit -m "Update Dataset [skip ci]" || echo "Tidak ada perubahan data, skip commit."
