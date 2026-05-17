@@ -24,7 +24,7 @@ jobs:
       # Install dependencies untuk menjalankan file python
       - name: Install Dependencies
         run: |
-          pip install pandas polars
+          pip install pandas polars pyarrow
       
       # Menjalankan file python
       - name: Running python file
